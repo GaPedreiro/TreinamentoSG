@@ -11,10 +11,16 @@ public class Exercicio03Ref {
 
         List<String> palavras = new ArrayList<>();
 
-        while (palavra != "vertebrado" && palavra != "invertebrado") {
+        while (palavras.getFirst() != "vertebrado" && palavras.getFirst() != "invertebrado") {
             System.out.println("Informe uma das seguintes palavras: VERTEBRADO | INVERTEBRADO: ");
-            palavra = read.nextLine();
-            
+            palavras.add(read.nextLine());
+            read.nextLine();
+            if (palavras.getFirst().equals("vertebrado")) {
+                while (palavras.getFirst() != "ave" && palavras.getFirst() != "mamifero") {
+                    System.out.println("Agora, informe a segunda palavra: AVE | MAMIFERO");
+                    palavras.add(read.nextLine());
+                }
+            }
         }
     }
 }
