@@ -12,7 +12,7 @@ public class Exercicio01Ref {
         List<String> idadesCrescente = new ArrayList<>();
 
 
-        for (int i = 1; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.println("Informe um nome: ");
             nome = ler.nextLine();
             nomes.add(nome);
@@ -22,14 +22,11 @@ public class Exercicio01Ref {
             ler.nextLine();
         }
 
-
-
         System.out.println("Resultado: ");
         System.out.println("Nomes: " + nomes);
         System.out.println("Idades: " + idades);
         Collections.sort(idades);
         System.out.println(("Idades apresentadas em ordem crescente: " + idades));
-
 
     }
 }
