@@ -19,6 +19,7 @@ public class CadastroProduto {
         int choice = 0;
 
         while (choice != 5) {
+
             System.out.println("---------------------------");
             System.out.println("01 - Visualizar produtos.");
             System.out.println("02 - Cadastrar produto.");
@@ -35,6 +36,7 @@ public class CadastroProduto {
                         System.out.println("Nome: " + listaDeProdutos.get(i).getNomeProduto());
                         System.out.println("Status: " + listaDeProdutos.get(i).getStatusProduto());
                         System.out.println("Estoque: " + listaDeProdutos.get(i).getEstoqueAtualProduto());
+
                     }
                     break;
 
