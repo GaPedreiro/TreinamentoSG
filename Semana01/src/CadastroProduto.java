@@ -1,14 +1,18 @@
 import Produto.Produto;
 import Produto.ListagemDeProdutos;
+import Produto.ImprimirProduto;
 
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
+
+import static Produto.ListagemDeProdutos.listaProdutos;
+
 public class CadastroProduto {
 
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in);
-        ArrayList<Produto> listaProdutos = new ArrayList<>();
+
         //TEM UM PROBLEMA AQUI, A LISTA ESTÁ SENDO CRIADA AQUI, A QUE ESTÁ SENDO MANIPULADA É OUTRA.
         int escolha = 0;
         int contador = 0;
@@ -27,11 +31,7 @@ public class CadastroProduto {
             switch (escolha) {
                 case 1:
                     for (int i = 0; i < listaProdutos.size(); i++) {
-                        System.out.println("---------------------------");
-                        System.out.println("ID: " + listaProdutos.get(i).getIdProduto());
-                        System.out.println("Nome: " + listaProdutos.get(i).getNomeProduto());
-                        System.out.println("Estoque: " + listaProdutos.get(i).getEstoqueProduto());
-                        System.out.println("Status: " + listaProdutos.get(i).getStatusProduto());
+                        ImprimirProduto.imprimirProduto(listaProdutos.get(i));
                     }
                     break;
 

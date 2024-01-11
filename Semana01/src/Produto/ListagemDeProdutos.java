@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 
 public class ListagemDeProdutos extends Produto {
-    static ArrayList<Produto> listaProdutos = new ArrayList<>();
+    public static ArrayList<Produto> listaProdutos = new ArrayList<>();
 
     public static void ordenarPorCodigo() {
         Collections.sort(listaProdutos, Comparator.comparingInt(Produto::getIdProduto));
