@@ -9,10 +9,11 @@ public class CadastroProduto {
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in);
         ArrayList<Produto> listaProdutos = new ArrayList<>();
-        int choice = 0;
+        //TEM UM PROBLEMA AQUI, A LISTA ESTÁ SENDO CRIADA AQUI, A QUE ESTÁ SENDO MANIPULADA É OUTRA.
+        int escolha = 0;
         int contador = 0;
 
-        while (choice != 6) {
+        while (escolha != 6) {
             System.out.println("---------------------------");
             System.out.println("01 - Visualizar produtos.");
             System.out.println("02 - Cadastrar produto.");
@@ -21,9 +22,9 @@ public class CadastroProduto {
             System.out.println("05 - Listagem de produtos.");
             System.out.println("06 - Sair.");
             System.out.println(("-> Selecione uma opção: "));
-            choice = read.nextInt();
+            escolha = read.nextInt();
 
-            switch (choice) {
+            switch (escolha) {
                 case 1:
                     for (int i = 0; i < listaProdutos.size(); i++) {
                         System.out.println("---------------------------");
@@ -105,6 +106,42 @@ public class CadastroProduto {
 
                 case 5:
                     System.out.println(ListagemDeProdutos.imprimirMenuDeListagens());
+                    int escolhaSubmenu = read.nextInt();
+
+                    switch (escolhaSubmenu) {
+                        case 1:
+                            ListagemDeProdutos.ordenarPorCodigo();
+                            break;
+                        case 2:
+                            ListagemDeProdutos.ordenarPorNome();
+                            break;
+                        case 3:
+                            ListagemDeProdutos.ordenarPorEstoqueMaior();
+                            break;
+                        case 4:
+                            ListagemDeProdutos.ordenarPorEstoqueMenor();
+                            break;
+                        case 5:
+                            ListagemDeProdutos.mostrarAtivos();
+                            break;
+                        case 6:
+                            ListagemDeProdutos.mostrarInativos();
+                            break;
+                        case 7:
+                            ListagemDeProdutos.mostrarProdutosComEstoque();
+                            break;
+                        case 8:
+                            ListagemDeProdutos.mostrarProdutosSemEstoque();
+                            break;
+                        case 9:
+                            System.out.println("- Digite o nome do produto que deseja pesquisar: ");
+                            String nomePesquisa = read.next();
+                            ListagemDeProdutos.pesquisarPorNome(nomePesquisa);
+                            break;
+                        case 0:
+                            System.out.println("Retornando ao menu anterior.");
+                            break;
+                    }
                     break;
 
                 case 6:
