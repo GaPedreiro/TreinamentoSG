@@ -1,6 +1,8 @@
 package Produto;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Produto {
@@ -8,13 +10,19 @@ public class Produto {
     private boolean statusProduto;
     private int estoqueProduto;
 
+    private BigDecimal valorProduto; // ADICIONADO
+
+    private Date data; // ADICIONADO
+
     private int idProduto;
 
-    public Produto(String nomeProduto, int estoqueProduto, int idProduto) {
+    public Produto(String nomeProduto, BigDecimal valorProduto, int estoqueProduto, int idProduto, Date data) {
         this.nomeProduto = nomeProduto;
+        this.valorProduto = valorProduto;
         this.statusProduto = true;
         this.estoqueProduto = estoqueProduto;
         this.idProduto = idProduto;
+        this.data = new Date();
     }
 
     Scanner read = new Scanner(System.in);
@@ -55,5 +63,21 @@ public class Produto {
 
     public int contadorId() {
         return this.idProduto = idProduto++;
+    }
+
+    public BigDecimal getValorProduto() {
+        return valorProduto;
+    }
+
+    public void setValorProduto(BigDecimal valorProduto) {
+        this.valorProduto = valorProduto;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public Date getData() {
+        return data;
     }
 }

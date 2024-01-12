@@ -2,7 +2,9 @@ import Produto.Produto;
 import Produto.ListagemDeProdutos;
 import Produto.ImprimirProduto;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -38,11 +40,14 @@ public class CadastroProduto {
                 case 2:
                     System.out.println("- Digite o nome do produto a ser cadastrado: ");
                     String nome = read.next();
+                    System.out.println("- Digite o valor do produto " + nome + ":");
+                    BigDecimal valor = read.nextBigDecimal();
                     System.out.println("- Digite a quantidade em estoque do produto " + nome + ":");
                     int estoque = read.nextInt();
                     contador ++;
-                    listaProdutos.add(new Produto(nome, estoque, contador));
-                    listaProvisoria.add(new Produto(nome, estoque, contador));
+                    Date data = new Date();
+                    listaProdutos.add(new Produto(nome, valor, estoque, contador, data));
+                    listaProvisoria.add(new Produto(nome, valor, estoque, contador, data));
                     break;
 
                 case 3:
@@ -123,18 +128,24 @@ public class CadastroProduto {
                             ListagemDeProdutos.ordenarPorEstoqueMenor();
                             break;
                         case 5:
-                            ListagemDeProdutos.mostrarAtivos();
+                            // CHAMAR NOVOS MÉTODOS DE DATA AQUI
                             break;
                         case 6:
-                            ListagemDeProdutos.mostrarInativos();
+                            // CHAMAR NOVOS MÉTODOS DE DATA AQUI
                             break;
                         case 7:
-                            ListagemDeProdutos.mostrarProdutosComEstoque();
+                            ListagemDeProdutos.mostrarAtivos();
                             break;
                         case 8:
-                            ListagemDeProdutos.mostrarProdutosSemEstoque();
+                            ListagemDeProdutos.mostrarInativos();
                             break;
                         case 9:
+                            ListagemDeProdutos.mostrarProdutosComEstoque();
+                            break;
+                        case 10:
+                            ListagemDeProdutos.mostrarProdutosSemEstoque();
+                            break;
+                        case 11:
                             System.out.println("- Digite o nome do produto que deseja pesquisar: ");
                             String nomePesquisa = read.next();
                             ListagemDeProdutos.pesquisarPorNome(nomePesquisa);

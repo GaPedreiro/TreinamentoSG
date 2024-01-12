@@ -7,7 +7,6 @@ import java.util.Scanner;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 /*
-- Adicionar data ao cadastro do produto e também valor.
 - Ordenar por data de cadastro crescente e decrescente.
 
  */
@@ -33,6 +32,16 @@ public class ListagemDeProdutos extends Produto {
     public static void ordenarPorEstoqueMenor() {
         Collections.sort(listaProvisoria, Comparator.comparingInt(Produto::getEstoqueProduto).reversed());
         imprimirListaProdutos();
+    }
+
+    public static void ordenarPorDataMaisRecente() {
+        // DESENVOLVER AQUI E TESTAR
+        Collections.sort(listaProvisoria, Comparator.comparing(Produto::getData));
+    }
+
+    public static void ordenarPorDataMenosRecente() {
+        // DESENVOLVER AQUI E TESTAR
+        Collections.sort(listaProvisoria, Comparator.comparing(Produto::getData).reversed());
     }
 
     public static void mostrarAtivos() {
@@ -72,11 +81,13 @@ public class ListagemDeProdutos extends Produto {
                         "\n 2 - Ordem alfabética. " +
                         "\n 3 - Ordem de quantidade de estoque maior. " +
                         "\n 4 - Ordem de quantidade de estoque menor. " +
-                        "\n 5 - Somente produtos ativos. " +
-                        "\n 6 - Somente produtos inativos. " +
-                        "\n 7 - Somente produtos com estoque. " +
-                        "\n 8 - Somente produtos sem estoque. " +
-                        "\n 9 - Pesquisar por nome." +
+                        "\n 5 - Ordem de data mais recente" +
+                        "\n 6 - Ordem de data mais antiga" +
+                        "\n 7 - Somente produtos ativos. " +
+                        "\n 8 - Somente produtos inativos. " +
+                        "\n 9 - Somente produtos com estoque. " +
+                        "\n 10 - Somente produtos sem estoque. " +
+                        "\n 11 - Pesquisar por nome." +
                         "\n 0 - Sair."
         );
         return null;
