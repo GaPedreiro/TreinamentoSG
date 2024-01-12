@@ -6,28 +6,32 @@ import java.util.Comparator;
 import java.util.Scanner;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+/*
+- Adicionar data ao cadastro do produto e também valor.
+- Ordenar por data de cadastro crescente e decrescente.
 
-
+ */
 public class ListagemDeProdutos extends Produto {
     public static ArrayList<Produto> listaProdutos = new ArrayList<>();
+    public static ArrayList<Produto> listaProvisoria = new ArrayList<>();
 
     public static void ordenarPorCodigo() {
-        Collections.sort(listaProdutos, Comparator.comparingInt(Produto::getIdProduto));
+        Collections.sort(listaProvisoria, Comparator.comparingInt(Produto::getIdProduto));
         imprimirListaProdutos();
     }
 
     public static void ordenarPorNome() {
-        Collections.sort(listaProdutos, Comparator.comparing(Produto::getNomeProduto));
+        Collections.sort(listaProvisoria, Comparator.comparing(Produto::getNomeProduto));
         imprimirListaProdutos();
     }
 
     public static void ordenarPorEstoqueMaior() {
-        Collections.sort(listaProdutos, Comparator.comparingInt(Produto::getEstoqueProduto));
+        Collections.sort(listaProvisoria, Comparator.comparingInt(Produto::getEstoqueProduto));
         imprimirListaProdutos();
     }
 
     public static void ordenarPorEstoqueMenor() {
-        Collections.sort(listaProdutos, Comparator.comparingInt(Produto::getEstoqueProduto).reversed());
+        Collections.sort(listaProvisoria, Comparator.comparingInt(Produto::getEstoqueProduto).reversed());
         imprimirListaProdutos();
     }
 
@@ -44,14 +48,14 @@ public class ListagemDeProdutos extends Produto {
     }
 
     public static void mostrarProdutosSemEstoque() {
-        imprimirListaFiltrada(produto -> produto.getEstoqueProduto() > 0);
+        imprimirListaFiltrada(produto -> produto.getEstoqueProduto() <= 0);
     }
 
     public static void pesquisarPorNome(String nome) {
         imprimirListaFiltrada(produto -> produto.getNomeProduto().contains(nome));
     }
     private static void imprimirListaProdutos() {
-        listaProdutos.forEach(ImprimirProduto::imprimirProduto);
+        listaProvisoria.forEach(ImprimirProduto::imprimirProduto);
     }
 
     private static void imprimirListaFiltrada(Predicate<Produto> condition) {

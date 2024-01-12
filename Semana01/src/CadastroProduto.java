@@ -7,13 +7,13 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import static Produto.ListagemDeProdutos.listaProdutos;
+import static Produto.ListagemDeProdutos.listaProvisoria;
 
 public class CadastroProduto {
 
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in);
 
-        //TEM UM PROBLEMA AQUI, A LISTA ESTÁ SENDO CRIADA AQUI, A QUE ESTÁ SENDO MANIPULADA É OUTRA.
         int escolha = 0;
         int contador = 0;
 
@@ -42,6 +42,7 @@ public class CadastroProduto {
                     int estoque = read.nextInt();
                     contador ++;
                     listaProdutos.add(new Produto(nome, estoque, contador));
+                    listaProvisoria.add(new Produto(nome, estoque, contador));
                     break;
 
                 case 3:
