@@ -1,5 +1,6 @@
-package com.cinema.cinema.Cinema;
+package com.cinema.cinema.Cinema.Filme;
 
+import com.cinema.cinema.Cinema.Sessao.Sessao;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

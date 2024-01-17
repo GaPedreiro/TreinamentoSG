@@ -1,12 +1,12 @@
-package com.cinema.cinema.Cinema;
+package com.cinema.cinema.Cinema.Sessao;
 
+import com.cinema.cinema.Cinema.Assento.Assento;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 

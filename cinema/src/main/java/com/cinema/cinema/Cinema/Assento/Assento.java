@@ -1,4 +1,4 @@
-package com.cinema.cinema.Cinema;
+package com.cinema.cinema.Cinema.Assento;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
