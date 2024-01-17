@@ -24,6 +24,6 @@ public class Assento {
     private String fileiraAssento;
 
     @Column(name = "numero")
-    private Date numeroAssento;
+    private int numeroAssento;
 
 }
