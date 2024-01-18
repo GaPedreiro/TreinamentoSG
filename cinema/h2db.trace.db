@@ -1,0 +1,5 @@
+2024-01-17 21:14:58.228517-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select * from SESSAO\000d\000a[*]select * from FILME\000d\000aselect * from ASSENTO"; SQL statement:
+select * from SESSAO
+select * from FILME
+select * from ASSENTO [42000-224]

@@ -7,7 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
+import java.util.Objects;
+
 @Service
 public class FilmeService {
     private final FilmeRepository filmeRepository;
@@ -42,4 +45,24 @@ public class FilmeService {
     public List<Filme> findByNome(String nome) {
         return this.filmeRepository.findAllByNome("%" + nome + "%");
     }
+
+    // Parei aqui, criar um DTO para automatizar a criação de sessões e de assentos ao ser criado um filme.
+
+    @Transactional
+    public void gerarSessoesAssentos(GerarSessoesAssentosDTO dto) {
+        Filme filme = this.pegarPorId(dto.getFilmeId());
+
+        if (Objects.nonNull(filme)) {
+            this.cadastrar(filme);
+            // fazer 5 sessoes por dia, cada sessao tem 50 assentos.
+
+
+
+            // criar minhas sessoes
+            // criar meus assentos
+        } else {
+            throw new RuntimeException("Não há filme com esse código.");
+        }
+    }
+
 }

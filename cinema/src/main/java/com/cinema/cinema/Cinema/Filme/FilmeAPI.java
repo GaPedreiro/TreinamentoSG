@@ -25,6 +25,8 @@ public class FilmeAPI {
         return ResponseEntity.ok(this.filmeService.cadastrar(filme));
     }
 
+    @PostMapping("/gerar-sessoes-assento")
+
     /*
     @PutMapping("/{id}")
     public ResponseEntity<Filme> atualizar(@RequestBody Filme filme) {
