@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -11,6 +13,11 @@ public class GerarSessoesAssentosDTO {
     Integer filmeId;
     Integer numeroDeSessoes;
     Integer numeroDeAssentos;
+    Date dataInicioDoFilme;
+
+    public Date getDataInicioDoFilme() {
+        return dataInicioDoFilme;
+    }
 
     public Integer getFilmeId() {
         return filmeId;
