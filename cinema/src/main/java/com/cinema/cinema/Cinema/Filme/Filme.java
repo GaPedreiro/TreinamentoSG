@@ -37,4 +37,12 @@ public class Filme {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "filme_id")
     private List<Sessao> sessaoList;
+
+    public Date getDataInicio() {
+        return this.dataInicio;
+    }
+
+    public Date getDataFim() {
+        return this.dataFim;
+    }
 }

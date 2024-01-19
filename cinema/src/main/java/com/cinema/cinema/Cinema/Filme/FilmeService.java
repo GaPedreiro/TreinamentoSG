@@ -1,5 +1,6 @@
 package com.cinema.cinema.Cinema.Filme;
 
+import com.cinema.cinema.Cinema.Sessao.Sessao;
 import jakarta.persistence.metamodel.SingularAttribute;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.AbstractPersistable;
