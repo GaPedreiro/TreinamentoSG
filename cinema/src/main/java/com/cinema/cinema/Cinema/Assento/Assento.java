@@ -1,5 +1,6 @@
 package com.cinema.cinema.Cinema.Assento;
 
+import com.cinema.cinema.Cinema.Sessao.Sessao;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,6 +15,10 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity(name = "assento")
 public class Assento {
+
+    @ManyToOne
+    @JoinColumn(name = "sessao_id")
+    private Sessao sessao;
 
     @Id
     @Column(name = "id")

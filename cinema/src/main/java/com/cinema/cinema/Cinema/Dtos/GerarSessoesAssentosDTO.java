@@ -1,4 +1,4 @@
-package com.cinema.cinema.Cinema.Filme;
+package com.cinema.cinema.Cinema.Dtos;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

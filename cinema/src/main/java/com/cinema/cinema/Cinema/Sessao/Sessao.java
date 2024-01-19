@@ -1,6 +1,7 @@
 package com.cinema.cinema.Cinema.Sessao;
 
 import com.cinema.cinema.Cinema.Assento.Assento;
+import com.cinema.cinema.Cinema.Filme.Filme;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,6 +18,7 @@ import java.util.List;
 @Entity(name = "sessao")
 public class Sessao {
 
+
     @Id
     @Column(name = "sessao_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,7 +32,11 @@ public class Sessao {
     @Column(name = "hora_termino")
     private Date horaTermino;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "sessao_id")
+    @ManyToOne
+    @JoinColumn(name = "flime_id")
+    private Filme filme;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sessao")
+    //@JoinColumn(name = "sessao_id")
     private List<Assento> assentoList;
 }
