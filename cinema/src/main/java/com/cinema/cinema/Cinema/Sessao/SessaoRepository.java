@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface SessaoRepository extends JpaRepository<Sessao, Integer> {
     @Query(nativeQuery = true,
-            value = "SELECT * FROM sessao WHERE numero_sessao ILIKE :numero_sessao")
-    List<Sessao> findAllById(@Param("numero_sessao") Integer numero_sesao);
+            value = "SELECT * FROM sessao WHERE sessao_id ILIKE :sessao_id")
+    List<Sessao> findAllById(@Param("sessao_id") Integer numero_sesao);
 }

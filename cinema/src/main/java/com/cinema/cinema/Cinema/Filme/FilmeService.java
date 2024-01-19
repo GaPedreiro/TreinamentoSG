@@ -57,7 +57,8 @@ public class FilmeService {
             this.cadastrar(filme);
             // fazer 5 sessoes por dia, cada sessao tem 50 assentos.
 
-
+            // CASCADE
+            // trocar o identificador da sessao do filme de numero_sessao para id
 
             // criar minhas sessoes
             // criar meus assentos
