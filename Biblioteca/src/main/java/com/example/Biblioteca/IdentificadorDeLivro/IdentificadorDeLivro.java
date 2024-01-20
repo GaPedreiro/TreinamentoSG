@@ -1,5 +1,6 @@
 package com.example.Biblioteca.IdentificadorDeLivro;
 
+import com.example.Biblioteca.Livro.Livro;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,4 +27,11 @@ public class IdentificadorDeLivro {
 
     @Column(name = "numeroDoLivro")
     private int numeroDoLivro;
+
+    /*
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "livro_id")
+    private List<Livro> livro;
+
+     */
 }

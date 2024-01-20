@@ -19,7 +19,9 @@ public class LivroService {
 
     @Transactional
     public Livro cadastrar(Livro livro) {
+        livro.defineQuantidadeTotalInicial();
         return this.livroRepository.save(livro);
+
     }
 
     public Livro pegarPorId(Integer id) {
@@ -28,7 +30,13 @@ public class LivroService {
 
     @Transactional
     public void deletarPorId(Integer id) {
-        this.livroRepository.deleteById(id);
+        Livro livro = new Livro();
+        if (livro.isReservado()) {
+            this.livroRepository.deleteById(id);
+        } else {
+            System.out.println(livro.getQuantidadeAlugada());
+            System.out.println("Este livro não pode ser deletado, existe um exemplar reservado.");
+        }
     }
 
     @Transactional(readOnly = true)

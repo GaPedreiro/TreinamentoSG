@@ -1,6 +1,7 @@
 package com.example.Biblioteca.Livro;
 
-//import com.cinema.cinema.Cinema.Sessao.Sessao;
+//import com.example.Biblioteca.IdentificadorDeLivro.IdentificadorDeLivro;
+import com.example.Biblioteca.IdentificadorDeLivro.IdentificadorDeLivro;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -39,4 +40,24 @@ public class Livro {
 
     @Column(name = "quantidade_alugada")
     private int quantidadeAlugada;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "identificador_id")
+    private List<IdentificadorDeLivro> identificadorDeLivro;
+
+    public void defineQuantidadeTotalInicial() {
+        this.quantidadeTotal = quantidadeDisponivel;
+    }
+
+    public boolean isReservado() {
+        if (this.quantidadeAlugada > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int getQuantidadeAlugada() {
+        return this.quantidadeAlugada;
+    }
 }
