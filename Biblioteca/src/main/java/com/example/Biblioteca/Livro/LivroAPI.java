@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/livro")
@@ -38,4 +39,7 @@ public class LivroAPI {
     public ResponseEntity<List<Livro>> findByNome(@RequestParam(name = "nome") String nome) {
         return ResponseEntity.ok(this.livroService.findByNome(nome));
     }
+
+    @GetMapping("/orddem-alfabetica")
+    public
 }

@@ -30,4 +30,5 @@ public class PessoaService {
     public void deletarPorId(Integer id) {
         this.pessoaRepository.deleteById(id);
     }
+
 }

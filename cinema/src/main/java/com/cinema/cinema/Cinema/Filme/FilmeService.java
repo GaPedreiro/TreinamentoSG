@@ -50,6 +50,7 @@ public class FilmeService {
         if (Objects.nonNull(filme)) {
             //this.cadastrar(filme);
 
+            /*
             for (int i = 0; i < 3; i++) {
                 Sessao sessao = new Sessao();
                 sessao.setNumeroSessao(i);
@@ -62,6 +63,8 @@ public class FilmeService {
                 }
                 filme.getSessaoList().add(sessao);
             }
+
+             */
             this.cadastrar(filme);
 
         } else {

@@ -1,5 +1,6 @@
 package com.example.Biblioteca.Livro;
 
+import org.aspectj.weaver.ast.Literal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,9 +40,29 @@ public class LivroService {
         }
     }
 
+    // Deletar livro seguindo o Keven
+
+    @Transactional(readOnly = true)
+    public Livro pegarPorId(Integer)
+        // Não da tempo, o cara é brabo demais codando.
+
     @Transactional(readOnly = true)
     public List<Livro> findByNome(String nome) {
         return this.livroRepository.findAllByNome("%" + nome + "%");
+    }
+
+    @Transactional(readOnly = true)
+    public List<Livro> getPorOrdemAlfabetica() {
+        return this.livroRepository.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public List<Livro> getOndeTemDisponivel() {
+        List<Livro> livros = this.livroRepository.findAll();
+        livros = livros.stream().filter(livro -> livro.getQuantidadeDisponivel() > 0)
+                .toList();
+        return livros;
+
     }
 
 }
