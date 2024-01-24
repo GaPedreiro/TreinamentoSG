@@ -1,4 +1,3 @@
-/*
 package com.example.Hospital.Ala;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,9 +10,6 @@ import java.util.List;
 @Repository
 public interface AlaRepository extends JpaRepository<Ala, Integer> {
     @Query(nativeQuery = true,
-        value = "SELECT * FROM ala WHERE id ILIKE :ID")
+        value = "SELECT * FROM ala WHERE id ILIKE :id")
     List<Ala> findAllById(@Param("id") Integer id);
 }
-
-
- */

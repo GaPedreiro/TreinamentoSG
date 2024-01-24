@@ -20,7 +20,7 @@ public class FilmeService {
         this.filmeRepository = filmeRepository;
     }
 
-    @Transactional
+    @Transactional // UTILIZADO QUANDO OCORRE ALGUMA ALTERAÇÃO NO BANCO
     public Filme cadastrar(Filme filme) {
         return this.filmeRepository.save(filme);
     }
