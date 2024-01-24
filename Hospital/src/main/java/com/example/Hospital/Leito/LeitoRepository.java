@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public interface LeitoRepository extends JpaRepository<Hospital, Integer> {
+public interface LeitoRepository extends JpaRepository<Leito, Integer> {
     @Query(nativeQuery = true,
-        value = 'SELECT * FROM leito WHERE id ILIKE :id')
+        value = "SELECT * FROM leito WHERE id ILIKE :id")
     List<Hospital> findAllById(@Param("id") Integer id);
 }

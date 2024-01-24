@@ -13,7 +13,7 @@ public class Paciente {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idPaciente;
+    private Integer Paciente;
 
     @Column(name = "nome_paciente")
     private String nomePaciente;
