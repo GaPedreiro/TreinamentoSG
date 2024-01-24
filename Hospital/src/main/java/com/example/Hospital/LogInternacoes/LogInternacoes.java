@@ -17,15 +17,17 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Entity(name = "log_internacoes")
-public class LogInternacoes extends EntityId {
+public class LogInternacoes {
+    @Id
+    @Column(name = "log_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "leito_id")
-    private List<Leito> leitos;
+    @Column(name = "leito_id")
+    private Integer leitoId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "paciente_id")
-    private List<Paciente> pacientes;
+    @Column(name = "paciente_id")
+    private Integer pacienteId;
     @Column(name = "data_internamento")
     private Date dataInternamento;
 
