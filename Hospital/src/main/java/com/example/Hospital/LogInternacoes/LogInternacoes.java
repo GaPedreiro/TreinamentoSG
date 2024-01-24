@@ -19,7 +19,7 @@ import java.util.List;
 @Entity(name = "log_internacoes")
 public class LogInternacoes {
     @Id
-    @Column(name = "log_id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 

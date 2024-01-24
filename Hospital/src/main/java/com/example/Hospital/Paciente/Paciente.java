@@ -11,7 +11,7 @@ import lombok.Setter;
 @Entity(name = "paciente")
 public class Paciente {
     @Id
-    @Column(name = "paciente_id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idPaciente;
 

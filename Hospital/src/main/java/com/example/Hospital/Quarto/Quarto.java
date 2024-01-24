@@ -19,7 +19,7 @@ import java.util.List;
 public class Quarto {
 
     @Id
-    @Column(name = "quarto_id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
@@ -30,6 +30,6 @@ public class Quarto {
     private boolean statusQuarto;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "leito_id")
+    @JoinColumn(name = "quarto_id")
     private List<Leito> leitos;
 }

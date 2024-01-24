@@ -18,7 +18,7 @@ import java.util.List;
 @Entity(name  = "leito")
 public class Leito {
     @Id
-    @Column(name = "leito_id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
