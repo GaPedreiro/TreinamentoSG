@@ -31,6 +31,10 @@ public class HospitalService {
         this.hospitalRepository.deleteById(id);
     }
 
+    public List<Hospital> findByNome(String nome) {
+        return this.hospitalRepository.findAllByNome("%" + nome + "%");
+    }
+
     /*
     @Transactional(readOnly = true)
     public List<Hospital> findByNome {
