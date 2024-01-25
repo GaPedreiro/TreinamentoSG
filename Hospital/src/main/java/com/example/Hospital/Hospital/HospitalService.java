@@ -1,5 +1,10 @@
 package com.example.Hospital.Hospital;
 
+import com.example.Hospital.Ala.Ala;
+import com.example.Hospital.Ala.AlaRepository;
+import com.example.Hospital.Ala.AlaService;
+import com.example.Hospital.Leito.LeitoRepository;
+import com.example.Hospital.Quarto.QuartoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,8 +18,28 @@ public class HospitalService {
     private final HospitalRepository hospitalRepository;
 
     @Autowired
+    public AlaRepository alaRepository;
+
+    @Autowired
+    public QuartoRepository quartoRepository;
+
+    @Autowired
+    public LeitoRepository leitoRepository;
+
+
+
+    @Autowired
     public HospitalService(HospitalRepository hospitalRepository) {
         this.hospitalRepository = hospitalRepository;
+    }
+
+    @Transactional
+    public Ala criarAlaQuartoLeito(Hospital hospital, String especialidade, int quantidadeQuartos, int quantidadeDeLeitosPorQuarto) {
+        Ala ala = new Ala();
+
+        ala.setEspecialidade(especialidade);
+        ala.setHospital(hospital);
+
     }
 
     @Transactional
@@ -42,6 +67,8 @@ public class HospitalService {
     }
 
      */
+
+
 
 
 }
