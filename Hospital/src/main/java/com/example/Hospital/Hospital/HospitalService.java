@@ -44,26 +44,23 @@ public class HospitalService {
         // Passar quantidade fixa de leitos por quarto no HospitalAPI
 
         ala.setEspecialidade(especialidade);
-        //ala.setHospital(hospital);
+
         ala = alaRepository.save(ala);
 
         for (int i = 0; i < quantidadeQuartos; i++) {
             Quarto quarto = new Quarto();
-            quarto.setCodigoQuarto("PED" + (i + 1));
+            quarto.setCodigoQuarto("PED" + (i + 10));
             quarto.setStatusQuarto(true);
             quarto = quartoRepository.save(quarto);
 
             for (int j = 0; j < quantidadeDeLeitosPorQuarto; j++) {
                 Leito leito = new Leito();
-                leito.setCodigoLeito("PED" + (j + 1));
+                leito.setCodigoLeito("PED" + (j + 10));
                 leito.setStatusLeito(true);
                 leito = leitoRepository.save(leito);
             }
         }
-
-
         return ala;
-
     }
 
     @Transactional

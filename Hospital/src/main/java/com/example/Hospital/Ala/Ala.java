@@ -40,14 +40,6 @@ public class Ala {
         this.especialidade = especialidade;
     }
 
-/*
-    public void setHospital(Hospital hospital) {
-        this.hospital = hospital;
-    }
-
- */
-
-
     public List<Quarto> getQuartos() {
         return quartos;
     }
