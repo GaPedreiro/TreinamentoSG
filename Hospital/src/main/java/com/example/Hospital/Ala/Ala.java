@@ -28,10 +28,6 @@ public class Ala {
     @JoinColumn(name = "ala_id")
     private List<Quarto> quartos;
 
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -40,7 +36,19 @@ public class Ala {
         return especialidade;
     }
 
+    public void setEspecialidade(String especialidade) {
+        this.especialidade = especialidade;
+    }
+
     public void setHospital(Hospital hospital) {
         this.hospital = hospital;
-    }   
+    }
+
+    public List<Quarto> getQuartos() {
+        return quartos;
+    }
+
+    public void setQuartos(List<Quarto> quartos) {
+        this.quartos = quartos;
+    }
 }

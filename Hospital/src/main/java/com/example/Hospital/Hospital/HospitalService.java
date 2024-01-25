@@ -3,7 +3,9 @@ package com.example.Hospital.Hospital;
 import com.example.Hospital.Ala.Ala;
 import com.example.Hospital.Ala.AlaRepository;
 import com.example.Hospital.Ala.AlaService;
+import com.example.Hospital.Leito.Leito;
 import com.example.Hospital.Leito.LeitoRepository;
+import com.example.Hospital.Quarto.Quarto;
 import com.example.Hospital.Quarto.QuartoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,9 +38,28 @@ public class HospitalService {
     @Transactional
     public Ala criarAlaQuartoLeito(Hospital hospital, String especialidade, int quantidadeQuartos, int quantidadeDeLeitosPorQuarto) {
         Ala ala = new Ala();
+        // Passar um nome para ALA na requisição.
+        // Passar quantidade fixa de quartos no HospitalAPI
+        // Passar quantidade fixa de leitos por quarto no HospitalAPI
 
         ala.setEspecialidade(especialidade);
         ala.setHospital(hospital);
+        ala = alaRepository.save(ala);
+
+        for (int i = 0; i < quantidadeQuartos; i++) {
+            Quarto quarto = new Quarto();
+            quarto.setCodigoQuarto("PED" + (i + 1));
+            quarto.setStatusQuarto(true);
+            quarto = quartoRepository.save(quarto);
+
+            for (int j = 0; j < quantidadeDeLeitosPorQuarto; j++) {
+                Leito leito = new Leito();
+                leito.setCodigoLeito("PED" + (j + 1));
+                leito.setStatusLeito(true);
+                leito = leitoRepository.save(leito);
+            }
+        }
+        return ala;
 
     }
 

@@ -32,4 +32,20 @@ public class Quarto {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "quarto_id")
     private List<Leito> leitos;
+
+    public String getCodigoQuarto() {
+        return codigoQuarto;
+    }
+
+    public void setCodigoQuarto(String codigoQuarto) {
+        this.codigoQuarto = codigoQuarto;
+    }
+
+    public boolean isStatusQuarto() {
+        return statusQuarto;
+    }
+
+    public void setStatusQuarto(boolean statusQuarto) {
+        this.statusQuarto = statusQuarto;
+    }
 }

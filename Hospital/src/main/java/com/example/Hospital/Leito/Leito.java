@@ -30,4 +30,28 @@ public class Leito {
 
     @Column(name = "paciente_id")
     private Integer pacienteId;
+
+    public String getCodigoLeito() {
+        return codigoLeito;
+    }
+
+    public void setCodigoLeito(String codigoLeito) {
+        this.codigoLeito = codigoLeito;
+    }
+
+    public boolean isStatusLeito() {
+        return statusLeito;
+    }
+
+    public void setStatusLeito(boolean statusLeito) {
+        this.statusLeito = statusLeito;
+    }
+
+    public Integer getPacienteId() {
+        return pacienteId;
+    }
+
+    public void setPacienteId(Integer pacienteId) {
+        this.pacienteId = pacienteId;
+    }
 }
