@@ -38,12 +38,13 @@ public class HospitalService {
     @Transactional
     public Ala criarAlaQuartoLeito(Hospital hospital, String especialidade, int quantidadeQuartos, int quantidadeDeLeitosPorQuarto) {
         Ala ala = new Ala();
+
         // Passar um nome para ALA na requisição.
         // Passar quantidade fixa de quartos no HospitalAPI
         // Passar quantidade fixa de leitos por quarto no HospitalAPI
 
         ala.setEspecialidade(especialidade);
-        ala.setHospital(hospital);
+        //ala.setHospital(hospital);
         ala = alaRepository.save(ala);
 
         for (int i = 0; i < quantidadeQuartos; i++) {
@@ -59,12 +60,15 @@ public class HospitalService {
                 leito = leitoRepository.save(leito);
             }
         }
+
+
         return ala;
 
     }
 
     @Transactional
     public Hospital cadastrar(Hospital hospital) {
+        criarAlaQuartoLeito(hospital, "PEDIATRIA", 5, 2);
         return this.hospitalRepository.save(hospital);
     }
 

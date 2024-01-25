@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity(name = "ala")
 public class Ala {
-    private Hospital hospital;
+    //private Hospital hospital;
 
     @Id
     @Column(name = "id")
@@ -40,9 +40,13 @@ public class Ala {
         this.especialidade = especialidade;
     }
 
+/*
     public void setHospital(Hospital hospital) {
         this.hospital = hospital;
     }
+
+ */
+
 
     public List<Quarto> getQuartos() {
         return quartos;
