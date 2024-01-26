@@ -1,6 +1,5 @@
 package com.example.Hospital.Ala;
 
-import com.example.Hospital.Hospital.Hospital;
 import com.example.Hospital.Quarto.Quarto;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -46,5 +45,15 @@ public class Ala {
 
     public void setQuartos(List<Quarto> quartos) {
         this.quartos = quartos;
+    }
+
+    // MEXI AQUI
+    public boolean pegarQuartosLivres() {
+        for (int i = 0; i < quartos.size(); i++) {
+            if (quartos.get(i).isStatusQuarto()) {
+                System.out.println("-----> quartos livres: " + quartos.get(i).getCodigoQuarto());
+            }
+        }
+        return false;
     }
 }

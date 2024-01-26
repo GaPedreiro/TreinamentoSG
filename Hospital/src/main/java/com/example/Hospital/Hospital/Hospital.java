@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -24,11 +25,8 @@ public class Hospital {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "hospital_id")
-    public List<Ala> alas;                         // Mudei para public
+    private List<Ala> alas = new ArrayList<>();
 
-    public void setAlas(List<Ala> alas) {
-        this.alas = alas;
-    }
 
     public Integer getId() {
         return id;
