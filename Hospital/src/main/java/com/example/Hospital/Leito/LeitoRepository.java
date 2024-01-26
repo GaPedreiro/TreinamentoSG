@@ -15,6 +15,7 @@ public interface LeitoRepository extends JpaRepository<Leito, Integer> {
 
     // MEXI AQUI PRA BAIXO
     @Query(nativeQuery = true,
-        value = "SELECT l FROM leito l INNER JOIN l.quarto q INNER JOIN q.ala a WHERE a.especialidade = :especialidade AND l.status = 'true'")
-    List<Leito> findLeitosLivresPorEpecialidade(@Param("especialidade") String especialidade);
+        //value = "SELECT l FROM leito l INNER JOIN l.quarto q INNER JOIN q.ala a WHERE a.especialidade = :especialidade AND l.status = 'true'")
+        value = "SELECT * FROM leito l WHERE status_leito is TRUE AND l.:statusLeito")
+    List<Leito> findLeitosLivresPorEpecialidade(@Param("statusLeito") boolean statusLeito);
 }
