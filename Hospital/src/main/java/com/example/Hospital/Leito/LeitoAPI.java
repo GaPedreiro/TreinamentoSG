@@ -35,11 +35,14 @@ public class LeitoAPI {
     }
 
     // ADICIONEI ISSO AQUI, não ta funcionando.
+    /*
     @GetMapping("/livres")
     public ResponseEntity<List<Leito>> getLeitosLivresPorEspecialidade(@PathVariable String especialidade) {
         List<Leito> leitosLivres = leitoService.getLeitosLivresPorEspecialidade(especialidade);
         return ResponseEntity.ok(this.leitoService.getLeitosLivresPorEspecialidade(especialidade));
         //return new ResponseEntity<>(leitosLivres, HttpStatus.OK);
     }
+
+     */
 
 }

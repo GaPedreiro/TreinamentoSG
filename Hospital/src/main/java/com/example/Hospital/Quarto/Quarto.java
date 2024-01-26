@@ -48,4 +48,10 @@ public class Quarto {
     public void setStatusQuarto(boolean statusQuarto) {
         this.statusQuarto = statusQuarto;
     }
+
+    // ACRESCENTEI ESSE OVERRIDE AQUI
+    @Override
+    public String toString() {
+        return this.id + this.codigoQuarto + this.statusQuarto;
+    }
 }

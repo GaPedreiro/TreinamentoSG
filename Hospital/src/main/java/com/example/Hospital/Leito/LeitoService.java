@@ -32,9 +32,12 @@ public class LeitoService {
     }
 
     // ADICIONEI AQUI
+    /*
     @Transactional(readOnly = true)
     public List<Leito> getLeitosLivresPorEspecialidade(String especialidade) {
         return this.leitoRepository.findLeitosLivresPorEpecialidade(especialidade);
     }
+
+     */
 
 }

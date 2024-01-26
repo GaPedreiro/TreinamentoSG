@@ -45,24 +45,24 @@ public class HospitalService {
 
         for (int i = 0; i < quantidadeQuartos; i++) {
             Quarto quarto = new Quarto();
-            quarto.setCodigoQuarto("ORTO" + (i + 1));
+            quarto.setCodigoQuarto("ODONTO" + (i + 1));
             quarto.setStatusQuarto(true);
             quarto = quartoRepository.save(quarto);
 
             for (int j = 0; j < quantidadeDeLeitosPorQuarto; j++) {
                 Leito leito = new Leito();
-                leito.setCodigoLeito("ORTO" + (i + 1) + "-" + (j + 1));
+                leito.setCodigoLeito("ODONTO" + (i + 1) + "-" + (j + 1));
                 leito.setStatusLeito(true);
                 leito = leitoRepository.save(leito);
             }
         }
-
         return ala;
+
     }
 
     @Transactional
     public Hospital cadastrar(Hospital hospital) {
-        criarAlaQuartoLeito(hospital, "ORTOPEDIA", 5, 2);
+        criarAlaQuartoLeito(hospital, "Odontologia", 5, 2);
         return this.hospitalRepository.save(hospital);
     }
 
