@@ -11,7 +11,7 @@ import java.util.List;
 public interface LeitoRepository extends JpaRepository<Leito, Integer> {
     @Query(nativeQuery = true,
         value = "SELECT * FROM leito WHERE id ILIKE :id")
-    List<Hospital> findAllById(@Param("id") Integer id);
+    List<Leito> findAllById(@Param("id") Integer id); ////////////////////////////////// achei o erro?
 
     // MEXI AQUI PRA BAIXO
     @Query(nativeQuery = true,
