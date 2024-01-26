@@ -1,5 +1,8 @@
 package com.example.Hospital.Paciente;
 
+import com.example.Hospital.Ala.AlaRepository;
+import com.example.Hospital.Leito.LeitoRepository;
+import com.example.Hospital.Quarto.QuartoRepository;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.metamodel.SingularAttribute;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,4 +37,5 @@ public class PacienteService {
     public void deletarPorId(Integer id) {
         this.pacienteRepository.deleteById(id);
     }
+
 }

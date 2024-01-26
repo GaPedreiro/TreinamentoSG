@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -39,33 +40,29 @@ public class HospitalService {
     public Ala criarAlaQuartoLeito(Hospital hospital, String especialidade, int quantidadeQuartos, int quantidadeDeLeitosPorQuarto) {
         Ala ala = new Ala();
 
-        // Passar um nome para ALA na requisição.
-        // Passar quantidade fixa de quartos no HospitalAPI
-        // Passar quantidade fixa de leitos por quarto no HospitalAPI
-
         ala.setEspecialidade(especialidade);
-
         ala = alaRepository.save(ala);
 
         for (int i = 0; i < quantidadeQuartos; i++) {
             Quarto quarto = new Quarto();
-            quarto.setCodigoQuarto("PED" + (i + 10));
+            quarto.setCodigoQuarto("ORTO" + (i + 1));
             quarto.setStatusQuarto(true);
             quarto = quartoRepository.save(quarto);
 
             for (int j = 0; j < quantidadeDeLeitosPorQuarto; j++) {
                 Leito leito = new Leito();
-                leito.setCodigoLeito("PED" + (j + 10));
+                leito.setCodigoLeito("ORTO" + (i + 1) + "-" + (j + 1));
                 leito.setStatusLeito(true);
                 leito = leitoRepository.save(leito);
             }
         }
+
         return ala;
     }
 
     @Transactional
     public Hospital cadastrar(Hospital hospital) {
-        criarAlaQuartoLeito(hospital, "PEDIATRIA", 5, 2);
+        criarAlaQuartoLeito(hospital, "ORTOPEDIA", 5, 2);
         return this.hospitalRepository.save(hospital);
     }
 

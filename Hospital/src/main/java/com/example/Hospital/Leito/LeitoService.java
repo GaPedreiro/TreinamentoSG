@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class LeitoService {
 
@@ -27,6 +29,12 @@ public class LeitoService {
     @Transactional
     public void deletarPorId(Integer id) {
         this.leitoRepository.deleteById(id);
+    }
+
+    // ADICIONEI AQUI
+    @Transactional(readOnly = true)
+    public List<Leito> getLeitosLivresPorEspecialidade(String especialidade) {
+        return this.leitoRepository.findLeitosLivresPorEpecialidade(especialidade);
     }
 
 }

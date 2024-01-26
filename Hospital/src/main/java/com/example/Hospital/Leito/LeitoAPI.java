@@ -3,6 +3,7 @@ package com.example.Hospital.Leito;
 import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +32,14 @@ public class LeitoAPI {
     public ResponseEntity<Void> deletarPorId(@PathVariable Integer id) {
         this.leitoService.deletarPorId(id);
         return ResponseEntity.accepted().build();
+    }
+
+    // ADICIONEI ISSO AQUI, não ta funcionando.
+    @GetMapping("/livres")
+    public ResponseEntity<List<Leito>> getLeitosLivresPorEspecialidade(@PathVariable String especialidade) {
+        List<Leito> leitosLivres = leitoService.getLeitosLivresPorEspecialidade(especialidade);
+        return ResponseEntity.ok(this.leitoService.getLeitosLivresPorEspecialidade(especialidade));
+        //return new ResponseEntity<>(leitosLivres, HttpStatus.OK);
     }
 
 }

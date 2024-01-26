@@ -24,5 +24,13 @@ public class Hospital {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "hospital_id")
-    private List<Ala> alas;
+    public List<Ala> alas;                         // Mudei para public
+
+    public void setAlas(List<Ala> alas) {
+        this.alas = alas;
+    }
+
+    public Integer getId() {
+        return id;
+    }
 }
