@@ -28,4 +28,26 @@ public class Servico {
     @Column(name = "data_de_cadastro")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Date dataDeCadastro;
+
+    public Servico(String nome, double precoMaoDeObra, Date dataDeCadastro) {
+        this.nome = nome;
+        this.precoMaoDeObra = precoMaoDeObra;
+        this.dataDeCadastro = dataDeCadastro;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public double getPrecoMaoDeObra() {
+        return precoMaoDeObra;
+    }
+
+    public Date getDataDeCadastro() {
+        return dataDeCadastro;
+    }
 }

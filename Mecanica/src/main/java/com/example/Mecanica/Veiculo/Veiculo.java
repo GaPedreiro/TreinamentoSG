@@ -30,4 +30,31 @@ public class Veiculo {
 
     @Column(name = "km_rodados")
     private int kmRodados;
+
+    public Veiculo(String modelo, String marca, int anoDeFabricacao, int kmRodados) {
+        this.modelo = modelo;
+        this.marca = marca;
+        this.anoDeFabricacao = anoDeFabricacao;
+        this.kmRodados = kmRodados;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public int getAnoDeFabricacao() {
+        return anoDeFabricacao;
+    }
+
+    public int getKmRodados() {
+        return kmRodados;
+    }
 }

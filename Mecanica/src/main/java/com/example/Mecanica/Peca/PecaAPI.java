@@ -20,7 +20,7 @@ public class PecaAPI {
         this.pecaService = pecaService;
     }
 
-    @PostMapping
+    @PostMapping("")
     public ResponseEntity<Peca> cadastrar(@RequestBody Peca peca) {
         return ResponseEntity.ok(this.pecaService.cadastrar(peca));
     }
@@ -30,7 +30,7 @@ public class PecaAPI {
         return ResponseEntity.ok(this.pecaService.pegarPorId(id));
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarPorId(@PathVariable Integer id) {
         this.pecaService.deletarPorId(id);
         return ResponseEntity.accepted().build();
