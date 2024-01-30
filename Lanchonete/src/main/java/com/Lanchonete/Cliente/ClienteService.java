@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -32,10 +34,19 @@ public class ClienteService {
         //armazenar as informações do log na lista de log da Cliente
         //AQUI
         //Log log = new Log(cliente.getSaldo(), cliente.getId());
-        Log log = new Log(cliente.getSaldo());
-        this.logRepository.save(log);
 
-        return this.clienteRepository.save(cliente);
+
+
+        Log log = new Log(cliente.getSaldo());
+        cliente.getLogList().add(log);
+        cliente =  this.clienteRepository.save(cliente);
+//        cliente.getId();
+
+
+
+        //Log log = new Log(cliente.getSaldo(), cliente.getId());
+//        this.logRepository.save(log);
+        return cliente;
     }
 
     public Cliente pegarPorId(Integer id) {

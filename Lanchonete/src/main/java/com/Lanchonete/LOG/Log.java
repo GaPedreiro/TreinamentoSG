@@ -21,12 +21,12 @@ public class Log {
     //@Column(name = "pessoa_id")
     //private Integer pessoaId;
 
-    /* AQUI
-    public Log(double saldoCliente, Integer pessoaId) {
-        this.saldoCliente = saldoCliente;
-        this.pessoaId = pessoaId;
-    }
-     */
+
+//    public Log(double saldoCliente, Integer pessoaId) {
+//        this.saldoCliente = saldoCliente;
+//        this.pessoaId = pessoaId;
+//    }
+
 
     public Log(double saldoCliente) {
         this.saldoCliente = saldoCliente;
@@ -41,14 +41,14 @@ public class Log {
         return saldoCliente;
     }
 
-    /* AQUI
-    public Integer getPessoaId() {
-        return pessoaId;
-    }
 
-    public void setPessoaId(Integer pessoaId) {
-        this.pessoaId = pessoaId;
-    }
+//    public Integer getPessoaId() {
+//        return pessoaId;
+//    }
+//
+//    public void setPessoaId(Integer pessoaId) {
+//        this.pessoaId = pessoaId;
+//    }
 
-     */
+
 }
