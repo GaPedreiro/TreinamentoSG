@@ -5,9 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,8 +18,19 @@ public class Log {
     @Column(name = "saldo")
     private double saldoCliente;
 
+    //@Column(name = "pessoa_id")
+    //private Integer pessoaId;
+
+    /* AQUI
+    public Log(double saldoCliente, Integer pessoaId) {
+        this.saldoCliente = saldoCliente;
+        this.pessoaId = pessoaId;
+    }
+     */
+
     public Log(double saldoCliente) {
         this.saldoCliente = saldoCliente;
+
     }
 
     public Integer getId() {
@@ -32,4 +40,15 @@ public class Log {
     public double getSaldoCliente() {
         return saldoCliente;
     }
+
+    /* AQUI
+    public Integer getPessoaId() {
+        return pessoaId;
+    }
+
+    public void setPessoaId(Integer pessoaId) {
+        this.pessoaId = pessoaId;
+    }
+
+     */
 }

@@ -1,25 +1,40 @@
 package com.Lanchonete.Cliente;
 
-import jakarta.websocket.ClientEndpoint;
+import com.Lanchonete.LOG.Log;
+import com.Lanchonete.LOG.LogRepository;
+import com.Lanchonete.LOG.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Objects;
 
 @Service
 public class ClienteService {
     private final ClienteRepository clienteRepository;
+    private final LogService logService;
+
+    private final LogRepository logRepository;
 
     @Autowired
-    public ClienteService(ClienteRepository clienteRepository) {
+    public ClienteService(ClienteRepository clienteRepository, LogService logService, LogRepository logRepository) {
         this.clienteRepository = clienteRepository;
+        this.logService = logService;
+        this.logRepository = logRepository;
     }
 
     @Transactional
     public Cliente cadastrar(Cliente cliente) {
+        // Se o ID for gerado somente no momento em que armazena no banco, pode ser que aqui o ID ainda seja NULL
+
         this.validarCliente(cliente);
+
+        //armazenar as informações do log na lista de log da Cliente
+        //AQUI
+        //Log log = new Log(cliente.getSaldo(), cliente.getId());
+        Log log = new Log(cliente.getSaldo());
+        this.logRepository.save(log);
+
         return this.clienteRepository.save(cliente);
     }
 

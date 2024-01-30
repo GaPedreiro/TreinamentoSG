@@ -29,4 +29,5 @@ public class LogService {
     public void deletarPorId(Integer id) {
         this.logRepository.deleteById(id);
     }
+
 }
