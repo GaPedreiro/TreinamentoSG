@@ -55,13 +55,11 @@ public class ClienteService {
     }
 
     @Transactional
-    public void creditarPorId(Integer id, double valor) {
-        this.clienteRepository.findById(id);
+    public Cliente creditarPorId(Integer id) {
         Cliente cliente = this.clienteRepository.findById(id).orElse(null);
-        double novoSaldo = cliente.getSaldo() + valor;
+        double novoSaldo = cliente.getSaldo() + 10;
         cliente.setSaldo(novoSaldo);
-
-
+        return null;
     }
 
     @Transactional
@@ -75,9 +73,9 @@ public class ClienteService {
         if (Objects.isNull(cliente.getNome()) || cliente.getNome().isEmpty()) {
             throw new RuntimeException("O nome do cliente é iválido.");
         }
-        if (Objects.isNull(cliente.getSaldo())) {
-            throw new RuntimeException(("O saldo do cliente é inválido."));
-        }
+//        if (Objects.isNull(cliente.getSaldo())) {
+//            throw new RuntimeException(("O saldo do cliente é inválido."));
+//        }
         if (cliente.getSaldo() < 0) {
             throw new RuntimeException("O saldo do cliente não pode ser menor que zero, não vendemos fiado.");
         }
