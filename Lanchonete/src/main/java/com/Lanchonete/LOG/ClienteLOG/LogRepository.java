@@ -1,4 +1,4 @@
-package com.Lanchonete.LOG;
+package com.Lanchonete.LOG.ClienteLOG;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

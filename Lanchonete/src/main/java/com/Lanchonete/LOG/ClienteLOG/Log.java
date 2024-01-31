@@ -1,4 +1,4 @@
-package com.Lanchonete.LOG;
+package com.Lanchonete.LOG.ClienteLOG;
 
 import jakarta.persistence.*;
 import lombok.Getter;
