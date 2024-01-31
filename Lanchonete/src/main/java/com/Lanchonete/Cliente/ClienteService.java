@@ -44,10 +44,11 @@ public class ClienteService {
     }
 
     // Crédito de saldo
+    
     @Transactional
-    public Cliente creditarPorId(Integer id) {
+    public Cliente creditarPorId(Integer id, double valor) {
         Cliente cliente = this.clienteRepository.findById(id).orElse(null);
-        double novoSaldo = cliente.getSaldo() + 10;
+        double novoSaldo = cliente.getSaldo() + valor;
         cliente.setSaldo(novoSaldo);
         return null;
     }

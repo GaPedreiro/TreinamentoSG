@@ -34,9 +34,9 @@ public class ClienteAPI {
     }
 
     //O método teve de ser do tipo Cliente pois aqui abaixo etava reclamando que o tipo esperado era T e o provido foi void.
-    @PostMapping("/creditar/{id}")
-    public ResponseEntity<Cliente> creditarPorId(@PathVariable Integer id) {
-        return ResponseEntity.ok(this.clienteService.creditarPorId(id));
+    @PostMapping("/creditar/{id}/{valor}")
+    public ResponseEntity<Cliente> creditarPorId(@PathVariable Integer id, @PathVariable double valor) {
+        return ResponseEntity.ok(this.clienteService.creditarPorId(id, valor));
     }
 
     //PAREI AQUI
