@@ -37,20 +37,31 @@ public class ClienteService {
 
 
 
+        cliente.setSaldo(0.0);
         Log log = new Log(cliente.getSaldo());
         cliente.getLogList().add(log);
         cliente =  this.clienteRepository.save(cliente);
+
 //        cliente.getId();
-
-
 
         //Log log = new Log(cliente.getSaldo(), cliente.getId());
 //        this.logRepository.save(log);
+
         return cliente;
     }
 
     public Cliente pegarPorId(Integer id) {
         return this.clienteRepository.findById(id).orElse(null);
+    }
+
+    @Transactional
+    public void creditarPorId(Integer id, double valor) {
+        this.clienteRepository.findById(id);
+        Cliente cliente = this.clienteRepository.findById(id).orElse(null);
+        double novoSaldo = cliente.getSaldo() + valor;
+        cliente.setSaldo(novoSaldo);
+
+
     }
 
     @Transactional

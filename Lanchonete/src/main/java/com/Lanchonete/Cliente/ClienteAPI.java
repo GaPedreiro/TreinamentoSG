@@ -32,4 +32,7 @@ public class ClienteAPI {
         this.clienteService.deletarPorId(id);
         return ResponseEntity.accepted().build();
     }
+
+    @PostMapping("/{id}")
+    public
 }
