@@ -31,21 +31,10 @@ public class ClienteService {
 
         this.validarCliente(cliente);
 
-        //armazenar as informações do log na lista de log da Cliente
-        //AQUI
-        //Log log = new Log(cliente.getSaldo(), cliente.getId());
-
-
-
         cliente.setSaldo(0.0);
         Log log = new Log(cliente.getSaldo());
         cliente.getLogList().add(log);
         cliente =  this.clienteRepository.save(cliente);
-
-//        cliente.getId();
-
-        //Log log = new Log(cliente.getSaldo(), cliente.getId());
-//        this.logRepository.save(log);
 
         return cliente;
     }
@@ -84,9 +73,9 @@ public class ClienteService {
         if (Objects.isNull(cliente.getNome()) || cliente.getNome().isEmpty()) {
             throw new RuntimeException("O nome do cliente é iválido.");
         }
-//        if (Objects.isNull(cliente.getSaldo())) {
-//            throw new RuntimeException(("O saldo do cliente é inválido."));
-//        }
+        if (Objects.isNull(cliente.getSaldo())) {
+            throw new RuntimeException(("O saldo do cliente é inválido."));
+        }
         if (cliente.getSaldo() < 0) {
             throw new RuntimeException("O saldo do cliente não pode ser menor que zero, não vendemos fiado.");
         }
