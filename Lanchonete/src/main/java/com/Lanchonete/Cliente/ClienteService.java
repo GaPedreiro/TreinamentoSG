@@ -54,10 +54,21 @@ public class ClienteService {
         return this.clienteRepository.findById(id).orElse(null);
     }
 
+    // Crédito de saldo
     @Transactional
     public Cliente creditarPorId(Integer id) {
         Cliente cliente = this.clienteRepository.findById(id).orElse(null);
         double novoSaldo = cliente.getSaldo() + 10;
+        cliente.setSaldo(novoSaldo);
+        return null;
+    }
+
+    // Débito de saldo
+
+    @Transactional
+    public Cliente debitarPorId(Integer id, double valor) {
+        Cliente cliente = this.clienteRepository.findById(id).orElse(null);
+        double novoSaldo = cliente.getSaldo() - valor;
         cliente.setSaldo(novoSaldo);
         return null;
     }

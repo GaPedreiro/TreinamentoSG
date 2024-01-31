@@ -33,10 +33,15 @@ public class ClienteAPI {
         return ResponseEntity.accepted().build();
     }
 
-    //AQUIII
     //O método teve de ser do tipo Cliente pois aqui abaixo etava reclamando que o tipo esperado era T e o provido foi void.
-    @PostMapping("/{id}")
+    @PostMapping("/creditar/{id}")
     public ResponseEntity<Cliente> creditarPorId(@PathVariable Integer id) {
         return ResponseEntity.ok(this.clienteService.creditarPorId(id));
+    }
+
+    //PAREI AQUI
+    @PostMapping("/debitar/{id}/{valor}")
+    public ResponseEntity<Cliente> debitarPorId(@PathVariable Integer id, @PathVariable double valor) {
+        return ResponseEntity.ok(this.clienteService.debitarPorId(id, valor));
     }
 }
