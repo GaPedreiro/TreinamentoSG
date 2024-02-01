@@ -39,7 +39,6 @@ public class ClienteAPI {
         return ResponseEntity.ok(this.clienteService.creditarPorId(id, valor));
     }
 
-    //PAREI AQUI
     @PostMapping("/debitar/{id}/{valor}")
     public ResponseEntity<Cliente> debitarPorId(@PathVariable Integer id, @PathVariable double valor) {
         return ResponseEntity.ok(this.clienteService.debitarPorId(id, valor));

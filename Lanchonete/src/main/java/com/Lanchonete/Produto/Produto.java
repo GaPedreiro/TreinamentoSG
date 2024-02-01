@@ -1,6 +1,7 @@
 package com.Lanchonete.Produto;
 
 import com.Lanchonete.LOG.ClienteLOG.Log;
+import com.Lanchonete.LOG.ProdutoLOG.LogProduto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,7 +32,7 @@ public class Produto {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "produto_id")
-    private List<Log> logList = new ArrayList<>();
+    private List<LogProduto> logProdutoList = new ArrayList<>();
 
     // Provavelmente a tabela "Receita" terá um produtoID, implementado aqui com cascade.
 
@@ -70,11 +71,7 @@ public class Produto {
         this.estoque -= valor;
     }
 
-    public List<Log> getLogList() {
-        return logList;
-    }
-
-    public void setLogList(List<Log> logList) {
-        this.logList = logList;
+    public List<LogProduto> getLogProdutoList() {
+        return logProdutoList;
     }
 }

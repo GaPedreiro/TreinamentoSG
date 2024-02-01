@@ -1,8 +1,8 @@
 package com.Lanchonete.Produto;
 
-import com.Lanchonete.LOG.ClienteLOG.Log;
-import com.Lanchonete.LOG.ClienteLOG.LogRepository;
-import com.Lanchonete.LOG.ClienteLOG.LogService;
+import com.Lanchonete.LOG.ProdutoLOG.LogProduto;
+import com.Lanchonete.LOG.ProdutoLOG.LogProdutoRepository;
+import com.Lanchonete.LOG.ProdutoLOG.LogProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,23 +11,23 @@ import org.springframework.transaction.annotation.Transactional;
 public class ProdutoService {
     private final ProdutoRepository produtoRepository;
 
-    private final LogService logService;
+    private final LogProdutoService logProdutoService;
 
-    private final LogRepository logRepository;
+    private final LogProdutoRepository logProdutoRepository;
 
     @Autowired
-    public ProdutoService(ProdutoRepository produtoRepository, LogService logService, LogRepository logRepository) {
+    public ProdutoService(ProdutoRepository produtoRepository, LogProdutoService logProdutoService, LogProdutoRepository logProdutoRepository) {
         this.produtoRepository = produtoRepository;
-        this.logService = logService;
-        this.logRepository = logRepository;
+        this.logProdutoService = logProdutoService;
+        this.logProdutoRepository = logProdutoRepository;
     }
 
     @Transactional
     public Produto cadastrar(Produto produto) {
 
         produto.setEstoque(0.0);
-        Log log = new Log(produto.getEstoque());
-        produto.getLogList().add(log);
+        LogProduto logProduto = new LogProduto(produto.getEstoque());
+        produto.getLogProdutoList().add(logProduto);
         this.produtoRepository.save(produto);
 
         return produto;
@@ -37,6 +37,28 @@ public class ProdutoService {
         return this.produtoRepository.findById(id).orElse(null);
     }
 
-    //PRA AVANÇAR AQUI VAMOS TER QUE CRIAR OUTRA TABELA DE LOG, PROPRIA PARA PRODUTOS
-    // NÃO DA PRA UTILIZAR A MESMA DE LOG DE CLIENTES. RETIRAR CASCADE DAQUI DEPOIS.
+    @Transactional
+    public void deletarPorId(Integer id) {
+        this.produtoRepository.deleteById(id);
+    }
+
+    @Transactional
+    public Produto adicionarEstoquePorId(Integer id, double valor) {
+        Produto produto = this.produtoRepository.findById(id).orElse(null);
+        double novoEstoque = produto.getEstoque() + valor;
+        produto.setEstoque(novoEstoque);
+        LogProduto logProduto = new LogProduto(produto.getEstoque());
+        produto.getLogProdutoList().add(logProduto);
+        return null;
+    }
+
+    @Transactional
+    public Produto retirarEstoquePorId(Integer id, double valor) {
+        Produto produto = this.produtoRepository.findById(id).orElse(null);
+        double novoEstoque = produto.getEstoque() - valor;
+        produto.setEstoque(novoEstoque);
+        LogProduto logProduto = new LogProduto(produto.getEstoque());
+        produto.getLogProdutoList().add(logProduto);
+        return null;
+    }
 }
