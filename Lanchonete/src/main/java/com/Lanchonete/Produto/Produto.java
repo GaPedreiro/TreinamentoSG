@@ -30,6 +30,8 @@ public class Produto {
     @Column(name = "estoque")
     private double estoque;
 
+    //Adicionar uma coluna que informa se ele é ingrediente ou não, caso seja, ele vai pra itemReceita
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "produto_id")
     private List<LogProduto> logProdutoList = new ArrayList<>();

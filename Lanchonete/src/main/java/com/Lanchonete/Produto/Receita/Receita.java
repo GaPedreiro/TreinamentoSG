@@ -33,9 +33,9 @@ public class Receita {
 
     // Eu chamo recita em venda ou venda em receita?
 
-//    @ManyToOne(cascade = CascadeType.ALL)
+//    @OneToMany(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "receitas_id")
-//    private List<Venda> vendaList = new ArrayList<>();
+//    private List<Produto> vendaList = new ArrayList<>();
 
     public Receita(String nome) {
         this.nome = nome;
