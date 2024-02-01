@@ -22,6 +22,12 @@ public class Receita {
     @Column(name = "nome")
     private String nome;
 
+    @Column(name = "preco")
+    private double preco;
+
+    @Column(name = "custo")
+    private double custo;
+
 //    @Column(name = "ingredientes")
 //    private List<Produto> ingredientesList = new ArrayList<>();
 
