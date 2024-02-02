@@ -15,12 +15,17 @@ import java.util.List;
 public class ItemReceita {
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(name = "produto_id")
+    private Integer produtoId;
 
     @Column(name = "quantidade")
     private double quantidade;
 
-    public ItemReceita(double quantidade) {
+    public ItemReceita(Integer produtoId, double quantidade) {
+        this.quantidade = quantidade;
         this.quantidade = quantidade;
     }
 
@@ -30,5 +35,13 @@ public class ItemReceita {
 
     public double getQuantidade() {
         return quantidade;
+    }
+
+    public Integer getProdutoId() {
+        return produtoId;
+    }
+
+    public void setProdutoId(Integer produtoId) {
+        this.produtoId = produtoId;
     }
 }
