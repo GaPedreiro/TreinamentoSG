@@ -1,6 +1,7 @@
 package com.Lanchonete.Produto.Receita;
 
 import com.Lanchonete.Produto.Produto;
+import com.Lanchonete.Produto.Receita.ItemReceita.ItemReceita;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,25 +18,21 @@ public class Receita {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(name = "nome")
     private String nome;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "receita_id")
+    private List<ItemReceita> ingredientesList = new ArrayList<>();
 
     @Column(name = "preco")
     private double preco;
 
     @Column(name = "custo")
     private double custo;
-
-//    @Column(name = "ingredientes")
-//    private List<Produto> ingredientesList = new ArrayList<>();
-
-    // Eu chamo recita em venda ou venda em receita?
-
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "receitas_id")
-//    private List<Produto> vendaList = new ArrayList<>();
 
     public Receita(String nome) {
         this.nome = nome;
@@ -49,9 +46,4 @@ public class Receita {
         return nome;
     }
 
-//    public List<Produto> getIngredientesList() {
-//        return ingredientesList;
-//    }
-
-    //alguma coisa aqui está quebrando.
 }
