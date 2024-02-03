@@ -2,6 +2,7 @@ package com.Lanchonete.Produto;
 
 import com.Lanchonete.LOG.ClienteLOG.Log;
 import com.Lanchonete.LOG.ProdutoLOG.LogProduto;
+import com.Lanchonete.Produto.Receita.ItemReceita.ItemReceita;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,6 +30,11 @@ public class Produto {
 
     @Column(name = "estoque")
     private double estoque;
+
+    //Adicionar uma coluna que informa se ele é ingrediente ou não, caso seja, ele vai pra itemReceita
+
+//    @Column(name = "ingrediente")
+//    private boolean isIngrediente;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "produto_id")
@@ -74,4 +80,5 @@ public class Produto {
     public List<LogProduto> getLogProdutoList() {
         return logProdutoList;
     }
+
 }

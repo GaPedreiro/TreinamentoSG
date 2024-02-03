@@ -3,6 +3,7 @@ package com.Lanchonete.Produto;
 import com.Lanchonete.LOG.ProdutoLOG.LogProduto;
 import com.Lanchonete.LOG.ProdutoLOG.LogProdutoRepository;
 import com.Lanchonete.LOG.ProdutoLOG.LogProdutoService;
+import com.Lanchonete.Produto.Receita.ItemReceita.ItemReceita;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +29,7 @@ public class ProdutoService {
         produto.setEstoque(0.0);
         LogProduto logProduto = new LogProduto(produto.getEstoque());
         produto.getLogProdutoList().add(logProduto);
+
         this.produtoRepository.save(produto);
 
         return produto;
