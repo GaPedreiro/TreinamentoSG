@@ -1,4 +1,4 @@
-package com.Lanchonete.Produto.Receita.ItemReceita;
+package com.Lanchonete.ItemReceita;
 
 import jakarta.persistence.*;
 import lombok.Getter;

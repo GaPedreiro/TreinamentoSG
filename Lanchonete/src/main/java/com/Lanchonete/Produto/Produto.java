@@ -1,8 +1,6 @@
 package com.Lanchonete.Produto;
 
-import com.Lanchonete.LOG.ClienteLOG.Log;
 import com.Lanchonete.LOG.ProdutoLOG.LogProduto;
-import com.Lanchonete.Produto.Receita.ItemReceita.ItemReceita;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

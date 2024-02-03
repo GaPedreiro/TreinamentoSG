@@ -1,7 +1,6 @@
-package com.Lanchonete.Produto.Receita;
+package com.Lanchonete.Receita;
 
-import com.Lanchonete.Produto.Produto;
-import com.Lanchonete.Produto.Receita.ItemReceita.ItemReceita;
+import com.Lanchonete.ItemReceita.ItemReceita;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -46,4 +45,7 @@ public class Receita {
         return nome;
     }
 
+    public List<ItemReceita> getIngredientesList() {
+        return ingredientesList;
+    }
 }
